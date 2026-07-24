@@ -1,5 +1,8 @@
 const APP = {
-  supabase: window.SUPABASE_CONFIG || { url: "", anonKey: "" },
+  supabase: window.SUPABASE_CONFIG || {
+    url: "https://niehzhjbwjmwpsyjxwyx.supabase.co",
+    anonKey: "sb_publishable_G5WQEqcoTshJwCzJVSXcpw_JM5cTmAq"
+  },
   reserved: new Set(["create", "login", "dashboard", "settings", "api", "admin", "assets", "index"]),
   demo: {
     username: "xsqezz", display_name: "xsqezz", bio: "Buduję rzeczy, które powinny istnieć. Kod, design i trochę chaosu po godzinach.",
