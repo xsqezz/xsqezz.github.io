@@ -3,76 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#08090d" />
-    <meta name="description" content="xsqezz - twórca cyfrowych projektów, narzędzi i eksperymentów." />
+    <meta name="theme-color" content="#090b10" />
+    <meta name="description" content="Orbit profiles - stwórz własny, nowoczesny profil w kilka minut." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://xsqezz.github.io/" />
-    <meta property="og:title" content="xsqezz | links" />
-    <meta property="og:description" content="Wszystkie ważne miejsca xsqezz w jednym miejscu." />
-    <meta property="og:image" content="https://xsqezz.github.io/assets/avatar.svg" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="xsqezz | links" />
-    <meta name="twitter:description" content="Wszystkie ważne miejsca xsqezz w jednym miejscu." />
+    <meta property="og:title" content="Orbit profiles" />
+    <meta property="og:description" content="Twoje linki, styl i muzyka. Jedna osobista strona." />
+    <meta property="og:image" content="https://xsqezz.github.io/assets/og-cover.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <title>xsqezz | links</title>
+    <title>Orbit profiles</title>
   </head>
   <body>
-    <canvas class="particle-field" aria-hidden="true"></canvas>
-    <div class="ambient ambient-one" aria-hidden="true"></div>
-    <div class="ambient ambient-two" aria-hidden="true"></div>
-
-    <main class="page-shell">
-      <section class="profile-card" aria-labelledby="profile-name">
-        <div class="card-glow" aria-hidden="true"></div>
-        <div class="profile-topline">
-          <span class="status-pill"><span class="status-dot"></span><span data-config="status">online</span></span>
-          <span class="handle-mark" data-config="tag">/ xq</span>
-        </div>
-
-        <div class="avatar-wrap">
-          <div class="avatar-ring"></div>
-          <img class="avatar" data-config-image="avatar" src="assets/avatar.svg" alt="Avatar xsqezz" />
-        </div>
-
-        <div class="identity">
-          <p class="eyebrow" data-config="eyebrow">digital maker / 2026</p>
-          <h1 id="profile-name" data-config="name">xsqezz</h1>
-          <p class="bio" data-config="bio">Buduję rzeczy, które powinny istnieć. Kod, design i trochę chaosu po godzinach.</p>
-        </div>
-
-        <div class="stats-row" aria-label="Statystyki profilu">
-          <div class="stat"><span class="stat-value" data-config="location">PL / EU</span><span class="stat-label">base</span></div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat"><span class="stat-value"><span id="view-count">0</span><span class="stat-plus">+</span></span><span class="stat-label">visits</span></div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat"><span class="stat-value" data-config="since">since 19</span><span class="stat-label">creating</span></div>
-        </div>
-
-        <div class="link-stack" id="link-list" aria-label="Linki profilu"></div>
-
-        <div class="music-player" id="music-player" hidden>
-          <button class="play-button" id="play-button" type="button" aria-label="Odtwórz muzykę" aria-pressed="false">
-            <svg class="icon icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z" /></svg>
-            <svg class="icon icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14" /></svg>
-          </button>
-          <div class="track-copy"><span class="track-kicker">now playing</span><span class="track-name" data-config="musicTitle">after hours</span></div>
-          <input id="volume-control" class="volume-control" type="range" min="0" max="1" step="0.05" value="0.35" aria-label="Głośność" />
-          <svg class="icon volume-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Zm4.5 3.5a5 5 0 0 1 0 7M18 5.8a9.5 9.5 0 0 1 0 12.4" /></svg>
-          <audio id="audio-player" preload="none"></audio>
-        </div>
-
-        <footer class="card-footer">
-          <span data-config="footer">made with intent</span>
-          <span class="footer-seal">© <span id="current-year">2026</span> xsqezz</span>
-        </footer>
-      </section>
-    </main>
-
-    <div class="toast" id="toast" role="status" aria-live="polite">Link skopiowany</div>
-    <script src="script.js"></script>
+    <div class="site-noise" aria-hidden="true"></div>
+    <div class="site-orb site-orb-a" aria-hidden="true"></div>
+    <div class="site-orb site-orb-b" aria-hidden="true"></div>
+    <header class="site-header" id="site-header"></header>
+    <main id="app" class="app-shell" tabindex="-1"></main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="config.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
