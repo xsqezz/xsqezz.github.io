@@ -31,7 +31,7 @@ const getPath = () => { const redirect = sessionStorage.getItem("gh-pages-path")
 const iconSvg = (name) => `<span aria-hidden="true">${name || icons.arrow}</span>`;
 
 async function connectSupabase() { if (!APP.supabase.url || !APP.supabase.anonKey) return null; try { const module = await import("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm"); supabase = module.createClient(APP.supabase.url, APP.supabase.anonKey); return supabase; } catch { return null; } }
-async function currentUser() { if (!supabase) return null; try { const { data: { session } } = await supabase.auth.getSession(); return session?.user || null; } catch { return null; } }
+async function currentUser() { if (!supabase) return null; try { const sessionResult = await Promise.race([supabase.auth.getSession(), new Promise((resolve) => setTimeout(() => resolve({ data: { session: null } }), 4000))]); return sessionResult?.data?.session?.user || null; } catch { return null; } }
 async function requireSupabase() { if (!supabase) await connectSupabase(); return supabase; }
 
 function renderHeader() { const userReady = Boolean(supabase); $("#site-header").innerHTML = `<a class="brand" href="/" data-nav><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="m5 8 7-5 7 5v8l-7 5-7-5V8Zm4 3 3 2 3-2" /></svg></span>orbit</a><nav class="nav-actions"><a class="nav-link" href="/" data-nav>Explore</a><a class="nav-link" href="/create" data-nav>Create</a>${userReady ? `<a class="button primary" href="/dashboard" data-nav>Dashboard ${iconSvg(icons.arrow)}</a>` : `<a class="button ghost" href="/login" data-nav>Zaloguj się</a>`}</nav>`; $$("[data-nav]").forEach((link) => link.addEventListener("click", (event) => { event.preventDefault(); navigate(link.getAttribute("href")); })); }
