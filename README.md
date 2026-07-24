@@ -15,9 +15,8 @@ Otworz `http://localhost:8000`. Projekt nie wymaga bundlera ani frameworka.
 1. Utworz projekt na [supabase.com](https://supabase.com).
 2. W SQL Editorze uruchom caly plik [`supabase/schema.sql`](supabase/schema.sql).
 3. W Authentication > Sign In / Providers wlacz Email. Magic link nie wymaga wlasnego backendu.
-4. Opcjonalnie skonfiguruj GitHub OAuth. Callback dla aplikacji GitHub to `https://<PROJECT-REF>.supabase.co/auth/v1/callback`.
-5. W Authentication > URL Configuration ustaw Site URL na `https://xsqezz.github.io`.
-6. Skopiuj [`config.example.js`](config.example.js) jako `config.js` i wpisz URL projektu oraz publiczny klucz publishable/anon.
+4. W Authentication > URL Configuration ustaw Site URL na `https://xsqezz.github.io`.
+5. Skopiuj [`config.example.js`](config.example.js) jako `config.js` i wpisz URL projektu oraz publiczny klucz publishable/anon.
 
 `config.js` jest publikowany razem ze strona, bo klucz publishable/anon jest publicznym kluczem klienta chronionym przez RLS. Nigdy nie publikuj klucza `service_role`.
 
